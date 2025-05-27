@@ -21,7 +21,7 @@ end
 
 rule "Route Finance to SAP for TX"
     when
-        $request: RoutingRequest(businessFunction == "Finance", stateId == "TX")
+        $request: RoutingRequest(businessFunction == "Finance", direction == "InBound" stateId == "TX")
         $response: RoutingResponse()
     then
         $response.setTargetErpSystem("SAP");
