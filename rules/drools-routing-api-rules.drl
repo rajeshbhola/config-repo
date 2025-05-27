@@ -18,19 +18,3 @@ rule "Route Inventory Outbound to Oracle for CA"
     then
         $response.setTargetErpSystem("Oracle");
 end
-
-rule "Route Procurement to SAP for EU"
-    when
-        $request: RoutingRequest(businessFunction == "Procurement", location == "EU")
-        $response: RoutingResponse()
-    then
-        $response.setTargetErpSystem("SAP");
-end
-
-rule "Default to Oracle"
-    when
-        $request: RoutingRequest()
-        $response: RoutingResponse(targetErpSystem == "Unknown")
-    then
-        $response.setTargetErpSystem("Oracle");
-end
