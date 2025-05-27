@@ -27,10 +27,10 @@ rule "Route Finance to SAP for TX"
         $response.setTargetErpSystem("SAP");
 end
 
-rule "Route Finance to Oracle for FL"
+rule "Route Finance to SAP for FL"
     when
         $request: RoutingRequest(businessFunction == "Finance", direction == "Outbound", stateId == "FL")
         $response: RoutingResponse()
     then
-        $response.setTargetErpSystem("Oracle");
+        $response.setTargetErpSystem("SAP");
 end
