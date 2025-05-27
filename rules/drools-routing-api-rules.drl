@@ -32,5 +32,5 @@ rule "Route Finance to SAP for FL"
         $request: RoutingRequest(businessFunction == "Finance", direction == "Outbound", stateId == "FL")
         $response: RoutingResponse()
     then
-        $response.setTargetErpSystem("SAP");
+        $response.setTargetErpSystem("Oracle");
 end
